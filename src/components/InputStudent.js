@@ -15,10 +15,14 @@ class InputStudent extends Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.addStudentProps(this.state.fullname)
+        if(this.state.fullname.trim()){
+            this.props.addStudentProps(this.state.fullname)
         this.setState({
             fullname: ''
         })
+        }else{
+            alert('Please enter a valid student')
+        }    
     }
 
     render(){
