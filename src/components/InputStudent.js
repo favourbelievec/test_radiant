@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import FlashMessage from 'react-flash-message'
 
 class InputStudent extends Component{
     state={
@@ -21,21 +22,30 @@ class InputStudent extends Component{
             fullname: ''
         })
         }else{
-            alert('Please enter a valid student')
+            // alert('Please enter a valid student')
+           return this.ErrorMessage
+            
         }    
     }
 
+    ErrorMessage = () => (
+        <FlashMessage duration={5000}>
+        <strong>i Will Disappear in 5Secs!</strong>
+        </FlashMessage>
+    )
+    
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
-                <input 
+            <form onSubmit={this.handleSubmit} className= 'form-container'>
+                <input
+                className='input-text' 
                     type='text' 
                     placeholder='Add student..' 
                     name='fullname'
                     value={this.state.fullname} 
                     onChange = {this.onChange}
                 />
-                <button>Submit</button>
+                <button className='input-submit'>Submit</button>
             </form>
         )
     }

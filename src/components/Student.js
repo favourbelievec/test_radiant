@@ -1,4 +1,5 @@
 import React from 'react'
+import FlashMessage from 'react-flash-message'
 
 class Student extends React.Component{
   render(){
